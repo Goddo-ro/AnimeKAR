@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.anime-item {
+    cursor: pointer;
+}
+
+.anime-item__rating {
+    top: 20px;
+    position: absolute;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 2px 6px;
+    max-width: 80%;
+    background: teal;
+}
+
+.strip {
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* количество строк */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
