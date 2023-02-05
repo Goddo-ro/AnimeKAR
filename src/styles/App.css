@@ -31,6 +31,10 @@
     text-overflow: ellipsis;
 }
 
+.anime-general-info {
+    max-width: 320px;
+}
+
 .anime-info-section {
     margin-bottom: 20px;
 }
