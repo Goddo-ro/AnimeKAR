@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const AnimeItem = ({ info }) => {
   return (
-    <div className="anime-item group relative">
-      <div className="anime-item__rating strip">{info.rating}</div>
+    <Link to={`/anime/${info.mal_id}`} className="anime-item group relative">
+      <div className="anime-item__rating strip">{info.score}</div>
       <div
         className="min-h-85 aspect-w-1 aspect-h-1 h-full w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-85">
         <img src={info.images.jpg.large_image_url} className="h-full w-full object-center lg:h-full lg:w-full" />
@@ -18,7 +19,7 @@ const AnimeItem = ({ info }) => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

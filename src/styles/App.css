@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .anime-item {
     cursor: pointer;
 }
@@ -23,4 +29,17 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.anime-info-section {
+    margin-bottom: 20px;
+}
+
+.anime-info-section h3 {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.anime-info-section--type {
+    color: bisque;
 }

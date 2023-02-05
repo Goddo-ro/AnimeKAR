@@ -5,6 +5,7 @@
     border: 3px dashed teal;
     animation: rotate 5s infinite linear;
     margin-inline: auto;
+    margin-top: 2rem;
 }
 
 @keyframes rotate {
