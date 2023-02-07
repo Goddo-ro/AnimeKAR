@@ -2,7 +2,7 @@ import Anime from "../pages/Anime";
 import { Navigate } from "react-router-dom";
 import About from "../pages/About";
 import AnimeById from "../pages/AnimeById";
-import AnimeDetails from "../components/AnimeDetails";
+import AnimeDetails from "../components/AnimeDetails/AnimeDetails";
 
 export const routes = [
   { path: "/anime", element: <Anime/> },

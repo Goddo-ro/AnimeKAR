@@ -39,11 +39,21 @@
     margin-bottom: 20px;
 }
 
-.anime-info-section h3 {
+h3 {
     font-weight: bold;
     border-bottom: 1px solid black;
+    margin-top: 12px;
+    margin-bottom: 8px;
 }
 
 .anime-info-section--type {
     color: bisque;
+}
+
+.content-section {
+    width: 100%;
+}
+
+p {
+    margin-bottom: 12px;
 }

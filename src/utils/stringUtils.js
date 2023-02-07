@@ -7,3 +7,7 @@ export const capitalize = (word) => {
 
   return firstLetterCap + remainingLetters;
 }
+
+export const makeParagraphs = (text) => {
+  return !text ? [] : text.split("\n");
+}

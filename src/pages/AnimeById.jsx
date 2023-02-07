@@ -5,6 +5,7 @@ import AnimeService from "../API/AnimeService";
 import Loader from "../components/UI/Loader/Loader";
 import { getFormattedDate } from "../utils/dateFormating";
 import { capitalize } from "../utils/stringUtils";
+import { divideByComma } from "../utils/numberUtils";
 
 const AnimeById = ({ children }) => {
   const params = useParams();
@@ -54,15 +55,15 @@ const AnimeById = ({ children }) => {
   ];
 
   const statistics_div = [
-    { title: "Score", body: `${anime.score} scored by ${anime.scored_by} users` },
+    { title: "Score", body: `${anime.score} scored by ${divideByComma(anime.scored_by)} users` },
     { title: "Ranked", body: `#${anime.rank}` },
     { title: "Popularity", body: `#${anime.popularity}` },
-    { title: "Members", body: anime.members },
-    { title: "Favorites", body: anime.favorites },
+    { title: "Members", body: divideByComma(anime.members) },
+    { title: "Favorites", body: divideByComma(anime.favorites) },
   ]
 
   return (
-    <div className="mt-6 p-20">
+    <div className="mt-6 p-20 max-w-7xl ml-auto mr-auto">
       <div className="anime-title-author bg-blue-300">
         <h2>{anime.title}</h2>
       </div>
@@ -97,7 +98,7 @@ const AnimeById = ({ children }) => {
             }
           </div>
         </div>
-        <div>
+        <div className="content-section">
           {
             navigation.map((item) => (
               <NavLink
