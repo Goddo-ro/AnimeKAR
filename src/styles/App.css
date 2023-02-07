@@ -31,8 +31,31 @@
     text-overflow: ellipsis;
 }
 
+.anime-info {
+    border-inline: 1px solid #BABABA;
+    padding-inline: 12px;
+    font-size: .75rem;
+}
+
+.anime-title-author {
+    padding: 4px;
+    padding-inline: 12px;
+    margin-bottom: 8px;
+}
+
+.anime-title-author h2 {
+    font-size: 1.25rem;
+}
+
+
 .anime-general-info {
-    max-width: 320px;
+    max-width: 220px;
+    border-right: 1px solid #BABABA;
+    padding-right: 12px;
+}
+
+.anime-general-info p {
+    margin: 8px 0;
 }
 
 .anime-info-section {
@@ -41,7 +64,7 @@
 
 h3 {
     font-weight: bold;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #BABABA;
     margin-top: 12px;
     margin-bottom: 8px;
 }
@@ -52,6 +75,22 @@ h3 {
 
 .content-section {
     width: 100%;
+    margin-left: 8px;
+}
+
+.content-section--links {
+    border-bottom: 1px solid gray;
+    padding: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2px;
+}
+
+.content-section--link {
+    font-size: .75rem;
+    padding-inline: 4px;
 }
 
 p {

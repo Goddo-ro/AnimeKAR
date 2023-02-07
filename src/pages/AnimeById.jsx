@@ -14,6 +14,17 @@ const AnimeById = ({ children }) => {
   const navigation = [
     { name: 'Details', href: '/anime/' + params.id, current: true },
     { name: 'Characters & Staff', href: `/anime/${params.id}/characters`, current: false },
+    { name: 'Episodes', href: `/anime/${params.id}/episodes`, current: false },
+    { name: 'Videos', href: `/anime/${params.id}/characters`, current: false },
+    { name: 'Stats', href: `/anime/${params.id}/characters`, current: false },
+    { name: 'Reviews', href: `/anime/${params.id}/characters`, current: false },
+    { name: 'Recommendations', href: `/anime/${params.id}/characters`, current: false },
+    { name: 'Interest Stacks', href: `/anime/${params.id}/characters`, current: false },
+    { name: 'News', href: `/anime/${params.id}/characters`, current: false },
+    { name: 'Forum', href: `/anime/${params.id}/characters`, current: false },
+    { name: 'Clubs', href: `/anime/${params.id}/characters`, current: false },
+    { name: 'Pictures', href: `/anime/${params.id}/characters`, current: false },
+    { name: 'More Info', href: `/anime/${params.id}/characters`, current: false },
   ]
 
   const childrenWithProps = React.Children.map(children, child => {
@@ -30,6 +41,10 @@ const AnimeById = ({ children }) => {
 
   useEffect(() => {
     fetchAnime(params.id);
+
+    if (anime) {
+      document.title = anime.title;
+    }
   }, []);
 
 
@@ -63,19 +78,19 @@ const AnimeById = ({ children }) => {
   ]
 
   return (
-    <div className="mt-6 p-20 max-w-7xl ml-auto mr-auto">
-      <div className="anime-title-author bg-blue-300">
+    <div className="mt-6 p-20 max-w-7xl ml-auto mr-auto pt-4">
+      <div className="anime-title-author bg-gray-700 text-white">
         <h2>{anime.title}</h2>
       </div>
-      <div className="flex">
-        <div className="anime-general-info border-r-2 border-gray-600 mr-2 pr-2">
+      <div className="flex anime-info">
+        <div className="anime-general-info border-gray-600 mr-2">
           <img src={anime.images?.jpg.large_image_url}/>
           <div className="anime-info-section">
             <h3>Alternative Titles</h3>
             {anime.titles?.map(title => {
               if (title.type === "Default") return;
               return <p className="text-gray-500">
-                <a className="text-gray-800">{title.type}</a>: {title.title}
+                <span className="text-black">{title.type}</span>: {title.title}
               </p>
             })}
           </div>
@@ -84,7 +99,7 @@ const AnimeById = ({ children }) => {
             {
               information_div.map(info =>
                 <p className="text-gray-500">
-                  <a className="text-gray-800">{info.title}</a>: {info.body}
+                  <span className="text-black">{info.title}</span>: {info.body}
                 </p>)
             }
           </div>
@@ -93,27 +108,29 @@ const AnimeById = ({ children }) => {
             {
               statistics_div.map(info =>
                 <p className="text-gray-500">
-                  <a className="text-gray-800">{info.title}</a>: {info.body}
+                  <span className="text-black">{info.title}</span>: {info.body}
                 </p>)
             }
           </div>
         </div>
         <div className="content-section">
-          {
-            navigation.map((item) => (
-              <NavLink
-                key={item.name}
-                to={item.href}
-                className={(navData) => (navData.isActive
-                    ? "bg-gray-800 text-white"
-                    : "text-gray-800 hover:bg-gray-800 hover:text-white") +
-                  " px-3 py-1 text-sm font-medium mr-2"}
-                aria-current={item.current ? 'page' : undefined}
-              >
-                {item.name}
-              </NavLink>
-            ))
-          }
+          <div className="content-section--links">
+            {
+              navigation.map((item) => (
+                <NavLink
+                  key={item.name}
+                  to={item.href}
+                  className={(navData) => (navData.isActive
+                      ? "bg-gray-800 text-white"
+                      : "text-gray-800 hover:bg-gray-800 hover:text-white") +
+                    " text-sm font-medium content-section--link"}
+                  aria-current={item.current ? 'page' : undefined}
+                >
+                  {item.name}
+                </NavLink>
+              ))
+            }
+          </div>
           {childrenWithProps}
         </div>
       </div>

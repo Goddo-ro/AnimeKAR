@@ -4,30 +4,36 @@
     display: flex;
     gap: 16px;
     align-items: center;
+    font-size: 1.1rem;
 }
 
-.detailsStatistics > span {
+.detailsStatistics span {
     font-weight: bold;
 }
 
 .score {
     text-align: center;
-    padding: 8px;
     border-right: 1px solid gray;
+    padding-inline: 12px;
+    margin: 8px;
 }
 
 .score span {
-    padding: 1px 12px;
+    padding: 2px 12px;
     border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: .65rem;
 }
 
 .score h2 {
     font-weight: bold;
-    font-size: 2rem;
-    line-height: 32px;
+    line-height: 1.35rem;
+    font-size: 1.35rem;
     margin-top: 4px;
 }
 
 .score p {
-    font-size: .75rem;
+    font-size: .55rem;
+    margin: 0;
 }
