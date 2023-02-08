@@ -7,18 +7,26 @@ import AnimeService from "../../API/AnimeService";
 import Loader from "../UI/Loader/Loader";
 import CharactersList from "../CharactersList";
 import { Link } from "react-router-dom";
+import StaffList from "../StaffList";
 
 const AnimeDetails = ({ anime }) => {
   const [characters, setCharacters] = useState([]);
+  const [staff, setStaff] = useState([]);
 
   const [fetchCharacters, areCharactersLoading, errors] = useFetching(async (id) => {
     if (!id) return;
-    const response = await AnimeService.getCharactersById(id);
+    const response = await AnimeService.getCharactersByAnimeId(id);
     setCharacters(response.data.data);
+  })
+
+  const [fetchStaff, areStaffFetshing, staffErrors] = useFetching(async (id) => {
+    const response = await AnimeService.getStaffByAnimeId(id);
+    setStaff(response.data.data)
   })
 
   useEffect(() => {
     fetchCharacters(anime.mal_id);
+    fetchStaff(anime.mal_id);
   }, [])
 
   return (
@@ -52,10 +60,17 @@ const AnimeDetails = ({ anime }) => {
         }
       </section>
       <section>
-          <h3>Characters & Voice Actors</h3>
+        <h3>Characters & Voice Actors</h3>
         { areCharactersLoading
           ? <Loader />
           : <CharactersList characters={characters} count={10} allActors={false} />
+        }
+      </section>
+      <section>
+        <h3>Staff</h3>
+        { areStaffFetshing
+          ? <Loader />
+          : <StaffList staff={staff} count={4} />
         }
       </section>
     </div>

@@ -9,7 +9,11 @@ export default class AnimeService {
     return await axios.get(`https://api.jikan.moe/v4/anime/${id}/full`);
   }
 
-  static async getCharactersById(id) {
+  static async getCharactersByAnimeId(id) {
     return await axios.get(`https://api.jikan.moe/v4/anime/${id}/characters`)
+  }
+
+  static async getStaffByAnimeId(id) {
+    return await axios.get(`https://api.jikan.moe/v4/anime/${id}/staff`);
   }
 }

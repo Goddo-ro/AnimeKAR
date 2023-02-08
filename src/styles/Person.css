@@ -1,6 +1,5 @@
 .personContainer {
-    padding: 2px;
-    padding-bottom: 0;
+    padding: 2px 2px 0;
 }
 
 .person {
@@ -19,6 +18,11 @@
     border-right: 1px solid #BABABA;
     margin-right: 4px;
     padding-right: 5px;
+}
+
+.person img {
+    height: 70px;
+    border: 1px solid #BABABA;
 }
 
 .person a {
@@ -44,4 +48,3 @@
 .personRight img {
     float: right;
 }
-

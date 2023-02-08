@@ -1,19 +1,17 @@
 import React from 'react';
-import classes from "./CharacterItem.module.css"
+import "../styles/Person.css"
 import { Link } from "react-router-dom";
 
-const CharacterItem = ({isEven, character, allActors}) => {
-  console.log(isEven)
-
+const CharacterItem = ({character, allActors}) => {
   return (
-    <div className={classes.personContainer}>
-      <div key={character.mal_id} className={`${classes.person} ${isEven ? classes.even : ""}`}>
-        <div className={classes.personLeft}>
+    <div className="personContainer">
+      <div key={character.mal_id} className="person">
+        <div className="personLeft">
           <Link><img className="w-10" src={character.character?.images?.jpg?.image_url} /></Link>
           <Link>{character.character?.name}</Link>
           <h5>{character.role}</h5>
         </div>
-        <div className={classes.personRight}>
+        <div className="personRight">
           {
             character.voice_actors?.filter((actor, i) => allActors ? true : i === 0).map(actor =>
               <>

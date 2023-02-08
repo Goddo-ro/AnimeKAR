@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+section {
+    margin-bottom: 20px;
+}
+
 .anime-item {
     cursor: pointer;
 }
@@ -96,7 +100,7 @@ p {
     margin-bottom: 12px;
 }
 
-.characters {
+.persons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
