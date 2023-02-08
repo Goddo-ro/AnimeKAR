@@ -1,0 +1,47 @@
+.personContainer {
+    padding: 2px;
+    padding-bottom: 0;
+}
+
+.person {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #BABABA;
+    padding: 4px;
+}
+
+.personContainer:nth-child(4n + 3) .person,
+.personContainer:nth-child(4n + 4) .person {
+    background: rgba(200, 200, 200, 0.3);
+}
+
+.personContainer:nth-child(2n - 1) {
+    border-right: 1px solid #BABABA;
+    margin-right: 4px;
+    padding-right: 5px;
+}
+
+.person a {
+    color: #6B7AD1;
+}
+
+.person > div {
+    min-width: 200px;
+}
+
+.person > div img {
+    margin-inline: 8px;
+}
+
+.personLeft img {
+    float: left;
+}
+
+.personRight {
+    text-align: right;
+}
+
+.personRight img {
+    float: right;
+}
+

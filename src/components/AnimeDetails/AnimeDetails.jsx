@@ -5,17 +5,20 @@ import { makeParagraphs } from "../../utils/stringUtils";
 import { useFetching } from "../../hooks/useFetching";
 import AnimeService from "../../API/AnimeService";
 import Loader from "../UI/Loader/Loader";
+import CharactersList from "../CharactersList";
+import { Link } from "react-router-dom";
 
 const AnimeDetails = ({ anime }) => {
   const [characters, setCharacters] = useState([]);
 
   const [fetchCharacters, areCharactersLoading, errors] = useFetching(async (id) => {
+    if (!id) return;
     const response = await AnimeService.getCharactersById(id);
-    setCharacters(response.data);
+    setCharacters(response.data.data);
   })
 
   useEffect(() => {
-    fetchCharacters(anime.id);
+    fetchCharacters(anime.mal_id);
   }, [])
 
   return (
@@ -49,10 +52,10 @@ const AnimeDetails = ({ anime }) => {
         }
       </section>
       <section>
-        <h3>Characters & Voice Actors</h3>
+          <h3>Characters & Voice Actors</h3>
         { areCharactersLoading
           ? <Loader />
-          : <p>Characters...</p>
+          : <CharactersList characters={characters} count={10} allActors={false} />
         }
       </section>
     </div>

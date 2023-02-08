@@ -48,7 +48,7 @@ const AnimeById = ({ children }) => {
   }, []);
 
 
-  if (isLoading || !anime) {
+  if (isLoading) {
     return <Loader/>;
   }
 

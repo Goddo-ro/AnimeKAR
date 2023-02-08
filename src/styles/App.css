@@ -25,7 +25,7 @@
 .strip {
     display: block;
     display: -webkit-box;
-    -webkit-line-clamp: 1; /* количество строк */
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -46,7 +46,6 @@
 .anime-title-author h2 {
     font-size: 1.25rem;
 }
-
 
 .anime-general-info {
     max-width: 220px;
@@ -95,4 +94,9 @@ h3 {
 
 p {
     margin-bottom: 12px;
+}
+
+.characters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
