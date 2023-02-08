@@ -42,7 +42,7 @@ const AnimeById = ({ children }) => {
   useEffect(() => {
     fetchAnime(params.id);
 
-    if (anime) {
+    if (anime.title) {
       document.title = anime.title;
     }
   }, []);
