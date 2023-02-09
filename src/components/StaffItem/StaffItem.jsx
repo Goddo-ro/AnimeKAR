@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 const StaffItem = ({staff}) => {
-  console.log(staff)
   return (
     <div className="personContainer">
       <div key={staff.mal_id} className="person">

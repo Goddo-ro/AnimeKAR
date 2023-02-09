@@ -16,4 +16,8 @@ export default class AnimeService {
   static async getStaffByAnimeId(id) {
     return await axios.get(`https://api.jikan.moe/v4/anime/${id}/staff`);
   }
+
+  static async getThemesByAnimeId(id) {
+    return await axios.get(`https://api.jikan.moe/v4/anime/${id}/themes`);
+  }
 }
