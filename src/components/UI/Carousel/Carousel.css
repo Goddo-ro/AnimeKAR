@@ -1,0 +1,40 @@
+.carouselContainer {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.carouselContainer button {
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 3;
+    font-size: 3.5rem;
+    color: white;
+    transition: all 0.3s linear;
+}
+
+.buttonLeft {
+    left: -100px;
+    box-shadow: rgba(0, 0, 0, 0.75) 50px 0px 56px -28px inset;
+}
+
+.carouselContainer:hover .buttonLeft {
+    left: 0;
+}
+
+.buttonRight {
+    box-shadow: rgba(0, 0, 0, 0.75) -50px 0px 56px -28px inset;
+    right: -100px;
+}
+
+.carouselContainer:hover .buttonRight {
+    right: 0;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    gap: 12px;
+}

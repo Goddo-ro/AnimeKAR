@@ -10,6 +10,8 @@
 
 section {
     margin-bottom: 20px;
+    position: relative;
+    min-height: 100px;
 }
 
 .anime-item {
@@ -77,7 +79,7 @@ h3 {
 }
 
 .content-section {
-    width: 100%;
+    width: 80%;
     margin-left: 8px;
 }
 
@@ -103,4 +105,8 @@ p {
 .persons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+.carousel-container {
+    gap: 12px;
 }

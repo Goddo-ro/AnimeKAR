@@ -31,6 +31,7 @@ const AnimeById = ({ children }) => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, { anime });
     }
+
     return child;
   });
 
@@ -89,7 +90,7 @@ const AnimeById = ({ children }) => {
             <h3>Alternative Titles</h3>
             {anime.titles?.map(title => {
               if (title.type === "Default") return;
-              return <p className="text-gray-500">
+              return <p key={title.type} className="text-gray-500">
                 <span className="text-black">{title.type}</span>: {title.title}
               </p>
             })}

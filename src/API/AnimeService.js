@@ -24,4 +24,8 @@ export default class AnimeService {
   static async getReviewsByAnimeId(id) {
     return await axios.get(`https://api.jikan.moe/v4/anime/${id}/reviews`);
   }
+
+  static async getAnimeRecommendations(id) {
+    return await axios.get(`https://api.jikan.moe/v4/anime/${id}/recommendations`);
+  }
 }

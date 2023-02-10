@@ -1,0 +1,32 @@
+.recItem {
+    height: 100%;
+    position: relative;
+}
+
+.recItem p {
+    position: absolute;
+    color: white;
+    right: 0;
+    padding: 0;
+    padding-inline: 6px;
+    line-height: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.9) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.9) 0px 18px 36px -18px inset;
+}
+
+.recItem img {
+    height: 100%;
+}
+
+.recItem h5 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    font-size: 0.65rem;
+    padding-inline: 4px;
+    box-shadow: rgba(0, 0, 0, 0.9) 0px -50px 36px -28px inset;
+}
