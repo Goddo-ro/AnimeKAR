@@ -9,5 +9,6 @@ export const capitalize = (word) => {
 }
 
 export const makeParagraphs = (text) => {
-  return !text ? [] : text.split("\n");
+  if (!text) return [];
+  return text.split("\n");
 }

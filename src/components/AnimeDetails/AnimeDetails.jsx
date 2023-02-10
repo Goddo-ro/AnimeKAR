@@ -9,11 +9,13 @@ import CharactersList from "../CharactersList";
 import { Link } from "react-router-dom";
 import StaffList from "../StaffList";
 import MusicList from "../MusicList/MusicList";
+import Reviews from "../Reviews";
 
 const AnimeDetails = ({ anime }) => {
   const [characters, setCharacters] = useState([]);
   const [staff, setStaff] = useState([]);
   const [themes, setThemes] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   const [fetchCharacters, areCharactersLoading, errors] = useFetching(async (id) => {
     if (!id) return;
@@ -31,20 +33,27 @@ const AnimeDetails = ({ anime }) => {
     setThemes(response.data.data);
   })
 
-  /** I am using timeouts because api that I am using has limits.
+  const [fetchReviews, areReviewsFetching, reviewsErrors] = useFetching(async (id) => {
+    const response = await AnimeService.getReviewsByAnimeId(id);
+    setReviews(response.data.data);
+  })
+
+  /**
+   * I am using timeouts because api that I am using has limits.
    * Due to multiple fetching I have to use the api several times a second,
    * because of that I have to do this strange thing.
   **/
   useEffect(() => {
-    setTimeout(() => {
-      fetchCharacters(anime.mal_id);
-    }, 1000)
-    setTimeout(() => {
-      fetchStaff(anime.mal_id);
-    }, 2000);
-    setTimeout(() => {
-      fetchThemes(anime.mal_id);
-    }, 3000);
+    // setTimeout(() => {
+    //   fetchCharacters(anime.mal_id);
+    // }, 1000)
+    // setTimeout(() => {
+    //   fetchStaff(anime.mal_id);
+    // }, 2000);
+    // setTimeout(() => {
+    //   fetchThemes(anime.mal_id);
+    // }, 3000);
+    fetchReviews(anime.mal_id);
   }, [])
 
   return (
@@ -79,35 +88,42 @@ const AnimeDetails = ({ anime }) => {
           }
         </section>
       }
+      {/*<section>*/}
+      {/*  <h3>Characters & Voice Actors</h3>*/}
+      {/*  { areCharactersLoading*/}
+      {/*    ? <Loader />*/}
+      {/*    : <CharactersList characters={characters} count={10} allActors={false} />*/}
+      {/*  }*/}
+      {/*</section>*/}
+      {/*<section>*/}
+      {/*  <h3>Staff</h3>*/}
+      {/*  { areStaffFetching*/}
+      {/*    ? <Loader />*/}
+      {/*    : <StaffList staff={staff} count={4} />*/}
+      {/*  }*/}
+      {/*</section>*/}
+      {/*<section className="flex justify-between gap-6">*/}
+      {/*  <div className="w-6/12">*/}
+      {/*    <h3>Opening Theme</h3>*/}
+      {/*    { areThemesFetching*/}
+      {/*      ? <Loader />*/}
+      {/*      : <MusicList music={themes.openings} />*/}
+      {/*    }*/}
+      {/*  </div>*/}
+      {/*  <div>*/}
+      {/*    <h3>Ending Theme</h3>*/}
+      {/*    { areThemesFetching*/}
+      {/*      ? <Loader />*/}
+      {/*      : <MusicList music={themes.endings} />*/}
+      {/*    }*/}
+      {/*  </div>*/}
+      {/*</section>*/}
       <section>
-        <h3>Characters & Voice Actors</h3>
-        { areCharactersLoading
+        <h3>Reviews</h3>
+        { areReviewsFetching
           ? <Loader />
-          : <CharactersList characters={characters} count={10} allActors={false} />
+          : <Reviews reviews={reviews} count={3} />
         }
-      </section>
-      <section>
-        <h3>Staff</h3>
-        { areStaffFetching
-          ? <Loader />
-          : <StaffList staff={staff} count={4} />
-        }
-      </section>
-      <section className="flex justify-between gap-6">
-        <div className="w-6/12">
-          <h3>Opening Theme</h3>
-          { areThemesFetching
-            ? <Loader />
-            : <MusicList music={themes.openings} />
-          }
-        </div>
-        <div>
-          <h3>Ending Theme</h3>
-          { areThemesFetching
-            ? <Loader />
-            : <MusicList music={themes.endings} />
-          }
-        </div>
       </section>
     </div>
   );

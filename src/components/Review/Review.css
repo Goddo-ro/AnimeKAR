@@ -1,0 +1,10 @@
+.review {
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.paragraphs.close {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+}
