@@ -21,7 +21,7 @@ const AnimeDetails = ({ anime }) => {
   const [reviews, setReviews] = useState([]);
   const [recs, setRecs] = useState([]);
 
-  const [fetchCharacters, areCharactersLoading, errors] = useFetching(async (id) => {
+  const [fetchCharacters, areCharactersLoading, charactersErrors] = useFetching(async (id) => {
     const response = await AnimeService.getCharactersByAnimeId(id);
     setCharacters(response.data.data);
   });
@@ -57,17 +57,23 @@ const AnimeDetails = ({ anime }) => {
     }, 1000)
     setTimeout(() => {
       fetchStaff(anime.mal_id);
-    }, 2000);
+    }, 2001);
     setTimeout(() => {
       fetchThemes(anime.mal_id);
-    }, 3000);
+    }, 3001);
     setTimeout(() => {
       fetchReviews(anime.mal_id);
-    }, 4000);
+    }, 4001);
     setTimeout(() => {
       fetchRecs(anime.mal_id);
-    }, 5000);
+    }, 5001);
   }, [])
+
+  if (charactersErrors) fetchCharacters(anime.mal_id);
+  if (staffErrors) fetchStaff(anime.mal_id);
+  if (themesErrors) fetchThemes(anime.mal_id);
+  if (reviewsErrors) fetchReviews(anime.mal_id);
+  if (recsErrors) fetchRecs(anime.mal_id);
 
   return (
     <div>
